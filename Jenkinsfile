@@ -12,21 +12,21 @@ pipeline {
     stages {
         stage ('Setup Environment & Install Dependencies') {
             steps {
-                sh '''
+                sh ```
                     python -m venv $VENV
                     . $VENV/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                ''''
+                ```
             }
         }
 
         stage ('Run Tests') {
             steps {
-                sh '''
+                sh ```
                     . $VENV/bin/activate
                     pytest test-app.py
-                '''
+                ```
             }
         }
 
